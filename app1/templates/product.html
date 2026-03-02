@@ -10,8 +10,6 @@
     <div class="product-detail-info">
         <h1>{% if id == 1 %}Меч Рыцаря{% elif id == 2 %}Щит Храбреца{% elif id == 3 %}Шлем Победителя{% elif id == 4 %}Кольчуга Воина{% else %}Кинжал Тени{% endif %}</h1>
         
-        <p class="product-satire">⚔ {{ description }}</p>
-        
         <p class="product-detail-price">{{ id }}0 золотых монет</p>
         
         <a href="{% url 'goods' %}" class="btn-back">← Вернуться в арсенал</a>
