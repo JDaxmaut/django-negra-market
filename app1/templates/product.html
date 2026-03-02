@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block title %}Product {{ id }}{% endblock %}
+
+{% block content %}
+<h1>Товар {{ id }}</h1>
+<p>Подробное описание товара {{ id }}. Высокое качество и отличная цена!</p>
+<p>Цена: ${{ id }}0</p>
+<a href="{% url 'goods' %}">Вернуться к товарам</a>
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+{% if user.is_authenticated %}
+    <h1>Добро пожаловать, {{ user.username }}!</h1>
+{% else %}
+    <h1>Добро пожаловать!</h1>
+{% endif %}
+<h2>{{name}}</h2>
+<h3>Programming languages</h3>
+<ul>
+    {%for element in languages%}
+        <li>{{element}}</li>
+    {%endfor%}
+</ul>
+{% endblock %}

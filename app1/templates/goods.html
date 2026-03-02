@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block title %}Products{% endblock %}
+
+{% block content %}
+<h1>Наши товары</h1>
+<ul>
+    {% for i in item_count %}
+    <li>
+        <a href="{% url 'product' id=forloop.counter %}">
+            Товар {{ forloop.counter }} - ${{ forloop.counter }}0
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
