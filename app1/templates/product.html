@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Product {{ id }}{% endblock %}
+{% block title %}Товар {{ id }} - Knight's Market{% endblock %}
 
 {% block content %}
 <div class="product-detail">
@@ -8,10 +8,32 @@
         <img src="https://i.guim.co.uk/img/media/85b5c0ba3d6036d58729076b5ef59de798ee2937/0_43_3465_4157/master/3465.jpg?width=465&dpr=1&s=none&crop=none" alt="Товар {{ id }}">
     </div>
     <div class="product-detail-info">
-        <h1>Товар {{ id }}</h1>
-        <p>Подробное описание товара {{ id }}. Высокое качество и отличная цена!</p>
-        <p class="product-detail-price">${{ id }}0</p>
-        <a href="{% url 'goods' %}" class="btn-back">← Вернуться к товарам</a>
+        <h1>{% if id == 1 %}Меч Рыцаря{% elif id == 2 %}Щит Храбреца{% elif id == 3 %}Шлем Победителя{% elif id == 4 %}Кольчуга Воина{% else %}Кинжал Тени{% endif %}</h1>
+        
+        <p class="product-satire">⚔ {{ description }}</p>
+        
+        <p class="product-detail-price">{{ id }}0 золотых монет</p>
+        
+        <a href="{% url 'goods' %}" class="btn-back">← Вернуться в арсенал</a>
+    </div>
+    
+    <div class="reviews-section">
+        <h2>Отзывы покупателей</h2>
+        <div class="reviews-list">
+            {% for review in reviews %}
+            <div class="review-card">
+                <div class="review-header">
+                    <span class="reviewer-name">{{ review.0 }}</span>
+                    <div class="review-stars">
+                        {% for i in "12345" %}
+                            {% if forloop.counter <= review.1 %}★{% else %}☆{% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+                <p class="review-text">{{ review.2 }}</p>
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 {% endblock %}

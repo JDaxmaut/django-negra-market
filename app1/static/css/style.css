@@ -271,3 +271,71 @@ a:hover {
     background: var(--bg-secondary);
     border-color: var(--accent);
 }
+
+/* Reviews */
+.reviews-section {
+    margin-top: 40px;
+    padding: 25px;
+    background: var(--bg-secondary);
+    border: 2px solid var(--gold);
+    border-radius: 8px;
+}
+
+.reviews-section h2 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: var(--gold);
+    text-align: center;
+}
+
+.reviews-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.review-card {
+    padding: 15px 20px;
+    background: var(--bg-primary);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold);
+    border-radius: 6px;
+}
+
+.review-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.reviewer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.review-stars {
+    color: var(--gold);
+    font-size: 18px;
+    letter-spacing: 2px;
+}
+
+.review-text {
+    color: var(--text-secondary);
+    font-size: 15px;
+    font-style: italic;
+    margin: 0;
+    line-height: 1.6;
+}
+
+.product-satire {
+    background: var(--bg-primary);
+    padding: 15px 20px;
+    border: 1px solid var(--gold);
+    border-radius: 4px;
+    font-style: italic;
+    color: var(--text-secondary);
+    margin: 20px 0;
+}
