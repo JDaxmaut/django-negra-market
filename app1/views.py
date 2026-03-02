@@ -98,11 +98,10 @@ def goods_page(request):
     return render(request, "goods.html", {"item_count": range(1,6)})
 
 def product_page(request, id):
-    # Генерируем описание и отзыв для товара
-    random.seed(id)  # Чтобы у одного товара всегда было одно описание
+    # Генерируем описание и отзыв для товара (случайно при каждом заходе)
     description = random.choice(PRODUCT_DESCRIPTIONS)
     
-    # Выбираем 1 случайный отзыв для этого товара
+    # Выбираем 1 случайный отзыв
     review = random.choice(REVIEWS)
     
     data = {
