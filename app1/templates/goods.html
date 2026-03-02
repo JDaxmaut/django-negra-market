@@ -1,9 +1,11 @@
 {% extends "base.html" %}
 
-{% block title %}Products{% endblock %}
+{% block title %}Арсенал - Knight's Market{% endblock %}
 
 {% block content %}
-<h1>Наши товары</h1>
+<h1>🗡 Арсенал Гильдии 🗡</h1>
+
+<div class="divider">◆ ◆ ◆</div>
 
 <div class="products-grid">
     {% for i in item_count %}
@@ -12,11 +14,17 @@
             <img src="https://i.guim.co.uk/img/media/85b5c0ba3d6036d58729076b5ef59de798ee2937/0_43_3465_4157/master/3465.jpg?width=465&dpr=1&s=none&crop=none" alt="Товар {{ forloop.counter }}">
         </div>
         <div class="product-info">
-            <h3>Товар {{ forloop.counter }}</h3>
-            <p class="product-desc">Описание товара {{ forloop.counter }}</p>
-            <p class="product-price">${{ forloop.counter }}0</p>
+            <h3>{% if i == 1 %}Меч Рыцаря{% elif i == 2 %}Щит Храбреца{% elif i == 3 %}Шлем Победителя{% elif i == 4 %}Кольчуга Воина{% else %}Кинжал Тени{% endif %}</h3>
+            <p class="product-desc">{% if i == 1 %}Выкован из дамасской стали{% elif i == 2 %}Укреплён серебром{% elif i == 3 %}Украшен рунами{% elif i == 4 %}Плетение мастеров{% else %}Для скрытных миссий{% endif %}</p>
+            <p class="product-price">{{ forloop.counter }}0 золотых</p>
         </div>
     </a>
     {% endfor %}
 </div>
+
+<div class="divider">◆ ◆ ◆</div>
+
+<p style="text-align: center;">
+    <em>Все товары прошли испытание в бою</em>
+</p>
 {% endblock %}

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block title %}Product {{ id }}{% endblock %}
+{% block title %}Товар {{ id }} - Knight's Market{% endblock %}
 
 {% block content %}
 <div class="product-detail">
@@ -8,10 +8,13 @@
         <img src="https://i.guim.co.uk/img/media/85b5c0ba3d6036d58729076b5ef59de798ee2937/0_43_3465_4157/master/3465.jpg?width=465&dpr=1&s=none&crop=none" alt="Товар {{ id }}">
     </div>
     <div class="product-detail-info">
-        <h1>Товар {{ id }}</h1>
-        <p>Подробное описание товара {{ id }}. Высокое качество и отличная цена!</p>
-        <p class="product-detail-price">${{ id }}0</p>
-        <a href="{% url 'goods' %}" class="btn-back">← Вернуться к товарам</a>
+        <h1>{% if id == 1 %}Меч Рыцаря{% elif id == 2 %}Щит Храбреца{% elif id == 3 %}Шлем Победителя{% elif id == 4 %}Кольчуга Воина{% else %}Кинжал Тени{% endif %}</h1>
+        
+        <p>{% if id == 1 %}Легендарный клинок, выкованный из дамасской стали. Прошёл через сотни сражений и никогда не подводил своего владельца.{% elif id == 2 %}Надёжный щит, укреплённый серебром. Выдержит любой удар вражеского оружия.{% elif id == 3 %}Шлем украшен древними рунами защиты. Дарует носителю мужество в бою.{% elif id == 4 %}Кольчуга сплетена лучшими мастерами гильдии. Лёгкая, но непробиваемая.{% else %}Тихий как тень, острый как смерть. Идеален для скрытных операций.{% endif %}</p>
+        
+        <p class="product-detail-price">{{ id }}0 золотых монет</p>
+        
+        <a href="{% url 'goods' %}" class="btn-back">← Вернуться в арсенал</a>
     </div>
 </div>
 {% endblock %}

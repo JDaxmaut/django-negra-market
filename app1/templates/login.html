@@ -1,15 +1,21 @@
 {% extends "base.html" %}
 
-{% block title %}Вход{% endblock %}
+{% block title %}Вход - Knight's Market{% endblock %}
 
 {% block content %}
-<h1>Вход</h1>
+<h1>🏰 Вход в Гильдию 🏰</h1>
+
+<div class="divider">◆ ◆ ◆</div>
+
 <form method="POST">
     {% csrf_token %}
     {{ form.as_p }}
     <button type="submit">Войти</button>
 </form>
-<p>
-    Нет аккаунта? <a href="{% url 'registration' %}">Зарегистрироваться</a>
+
+<div class="divider">⚔ ⚔ ⚔</div>
+
+<p style="text-align: center;">
+    Нет аккаунта? <a href="{% url 'registration' %}">Вступить в гильдию</a>
 </p>
 {% endblock %}

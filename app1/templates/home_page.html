@@ -1,18 +1,26 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Главная - Knight's Market{% endblock %}
 
 {% block content %}
 {% if user.is_authenticated %}
-    <h1>Добро пожаловать, {{ user.username }}!</h1>
+    <h1>⚔ Добро пожаловать, сэр {{ user.username }}! ⚔</h1>
 {% else %}
-    <h1>Добро пожаловать!</h1>
+    <h1>⚔ Добро пожаловать в Кузницу ⚔</h1>
 {% endif %}
-<h2>{{name}}</h2>
-<h3>Programming languages</h3>
+
+<div class="divider">◆ ◆ ◆</div>
+
+<h2>Доблестный рыцарь, тебе доступны:</h2>
 <ul>
-    {%for element in languages%}
-        <li>{{element}}</li>
-    {%endfor%}
+    <li>🗡 <strong>Арсенал</strong> — лучшее оружие для твоих подвигов</li>
+    <li>🛡 <strong>Доспехи</strong> — защита достойная чемпиона</li>
+    <li>📜 <strong>О Гильдии</strong> — узнай нашу историю</li>
 </ul>
+
+<div class="divider">◆ ◆ ◆</div>
+
+<p style="text-align: center; font-style: italic;">
+    "Меч остер в руках умелого воина..."
+</p>
 {% endblock %}

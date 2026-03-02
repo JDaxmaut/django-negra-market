@@ -1,10 +1,27 @@
 {% extends "base.html" %}
 
-{% block title %}About us{% endblock %}
+{% block title %}О Гильдии - Knight's Market{% endblock %}
 
 {% block content %}
-<h1>{{company_name}}</h1>
-<h2>Дата основания: {{date_of_founded}}</h2>
-<h3>О нас</h3>
+<h1>🏰 О Гильдии Кузнецов 🏰</h1>
+
+<div class="divider">⚔ ⚔ ⚔</div>
+
+<div class="scroll-text">
+    <p><strong>Дата основания:</strong> {{date_of_founded}}</p>
+</div>
+
+<h2>Наша История</h2>
 <p>{{description}}</p>
+
+<p>Мы — древняя гильдия мастеров-оружейников, передающих своё искусство из поколения в поколение. Наши клинки служили королям, наши доспехи защищали героев в тысяче битв.</p>
+
+<div class="divider">◆ ◆ ◆</div>
+
+<h3>Наши ценности:</h3>
+<ul>
+    <li>🛡 <strong>Честь</strong> — мы не продаём оружие врагам королевства</li>
+    <li>⚔ <strong>Качество</strong> — каждый клинок куется с молитвой</li>
+    <li>👑 <strong>Верность</strong> — наши клиенты становятся братьями гильдии</li>
+</ul>
 {% endblock %}
