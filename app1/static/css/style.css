@@ -19,15 +19,17 @@ body {
     background: var(--bg-primary);
     color: var(--text-primary);
     line-height: 1.6;
-    padding: 20px;
+    display: flex;
+    min-height: 100vh;
 }
 
 nav {
     display: flex;
-    gap: 20px;
-    padding-bottom: 20px;
-    border-bottom: 1px solid var(--border);
-    margin-bottom: 30px;
+    flex-direction: column;
+    gap: 15px;
+    padding: 20px 30px 20px 20px;
+    border-right: 1px solid var(--border);
+    min-width: 180px;
 }
 
 nav a {
@@ -37,8 +39,19 @@ nav a {
     transition: color 0.2s;
 }
 
+nav a.logo {
+    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
 nav a:hover {
     color: var(--accent);
+}
+
+.main-content {
+    flex: 1;
+    padding: 20px 30px;
 }
 
 h1 {
@@ -159,8 +172,10 @@ a:hover {
 
 .products-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .product-card {
@@ -170,6 +185,7 @@ a:hover {
     overflow: hidden;
     text-decoration: none;
     transition: border-color 0.2s, transform 0.2s;
+    display: block;
 }
 
 .product-card:hover {
@@ -179,7 +195,7 @@ a:hover {
 
 .product-image {
     width: 100%;
-    height: 200px;
+    height: 150px;
     overflow: hidden;
     background: var(--bg-primary);
 }
@@ -188,31 +204,24 @@ a:hover {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s;
-}
-
-.product-card:hover .product-image img {
-    transform: scale(1.05);
 }
 
 .product-info {
-    padding: 16px;
+    padding: 12px;
 }
 
 .product-info h3 {
-    font-size: 16px;
+    font-size: 14px;
     margin: 0 0 8px;
     color: var(--text-primary);
 }
 
-.product-desc {
-    font-size: 13px;
-    color: var(--text-secondary);
-    margin-bottom: 12px;
+.product-info a {
+    color: var(--text-primary);
 }
 
 .product-price {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 600;
     color: var(--accent);
     margin: 0;
@@ -225,7 +234,7 @@ a:hover {
 
 .product-detail-image {
     width: 100%;
-    height: 350px;
+    height: 450px;
     border-radius: 8px;
     overflow: hidden;
     background: var(--bg-secondary);
@@ -250,8 +259,13 @@ a:hover {
     margin-bottom: 15px;
 }
 
+.product-detail-desc {
+    color: var(--text-secondary);
+    margin-bottom: 15px;
+}
+
 .product-detail-price {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 600;
     color: var(--accent);
     margin: 20px 0;
@@ -272,70 +286,155 @@ a:hover {
     border-color: var(--accent);
 }
 
-/* Reviews */
-.reviews-section {
-    margin-top: 40px;
-    padding: 25px;
-    background: var(--bg-secondary);
-    border: 2px solid var(--gold);
-    border-radius: 8px;
-}
-
-.reviews-section h2 {
-    font-size: 22px;
-    margin-bottom: 20px;
-    color: var(--gold);
+.btn-add,
+.btn-remove,
+.btn-cart {
+    display: block;
+    width: 100%;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s, border-color 0.2s;
+    text-decoration: none;
+    margin-top: 10px;
     text-align: center;
+    border: none;
 }
 
-.reviews-list {
+.btn-add {
+    background: var(--accent);
+    color: #1e1e1e;
+}
+
+.btn-add:hover {
+    background: var(--accent-hover);
+}
+
+.btn-remove {
+    background: var(--bg-primary);
+    color: #ff6b6b;
+    border: 1px solid #ff6b6b;
+}
+
+.btn-remove:hover {
+    background: #ff6b6b;
+    color: #1e1e1e;
+}
+
+.cart-items {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
-.review-card {
-    padding: 15px 20px;
-    background: var(--bg-primary);
-    border: 1px solid var(--border);
-    border-left: 3px solid var(--gold);
-    border-radius: 6px;
-}
-
-.review-header {
+.cart-item {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 10px;
+    padding: 12px 15px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
 }
 
-.reviewer-name {
-    font-family: 'Cinzel', serif;
-    font-size: 14px;
-    color: var(--text-primary);
-    font-weight: 600;
-}
-
-.review-stars {
-    color: var(--gold);
+.cart-total {
     font-size: 18px;
-    letter-spacing: 2px;
+    font-weight: 600;
+    color: var(--accent);
+    margin-top: 20px;
 }
 
-.review-text {
-    color: var(--text-secondary);
+.about-description {
+    font-size: 16px;
+    line-height: 1.8;
+    margin-bottom: 30px;
+    max-width: 800px;
+}
+
+.advantages-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+}
+
+.advantages-list li {
+    padding: 18px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.advantages-list li strong {
+    display: block;
     font-size: 15px;
-    font-style: italic;
-    margin: 0;
-    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 8px;
 }
 
-.product-satire {
-    background: var(--bg-primary);
-    padding: 15px 20px;
-    border: 1px solid var(--gold);
-    border-radius: 4px;
-    font-style: italic;
+.advantages-list li p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
     color: var(--text-secondary);
-    margin: 20px 0;
+}
+
+.loyalty-title {
+    font-size: 22px;
+    color: var(--accent);
+    margin-top: 40px;
+    margin-bottom: 15px;
+}
+
+.loyalty-description {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+    max-width: 800px;
+}
+
+.loyalty-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin-bottom: 20px;
+}
+
+.loyalty-list li {
+    padding: 18px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: 6px;
+    margin-bottom: 12px;
+}
+
+.loyalty-list li strong {
+    display: block;
+    font-size: 15px;
+    color: var(--text-primary);
+    margin-bottom: 8px;
+}
+
+.loyalty-list li p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.loyalty-warning {
+    padding: 20px;
+    background: var(--bg-secondary);
+    border: 2px solid #ff6b6b;
+    border-radius: 8px;
+    max-width: 800px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ff6b6b;
+    font-weight: 500;
 }

@@ -1,10 +1,32 @@
 {% extends "base.html" %}
 
-{% block title %}About us{% endblock %}
+{% block title %}О компании{% endblock %}
 
 {% block content %}
-<h1>{{company_name}}</h1>
-<h2>Дата основания: {{date_of_founded}}</h2>
-<h3>О нас</h3>
-<p>{{description}}</p>
+<h1>О компании «азон»</h1>
+<p class="about-description">{{ description }}</p>
+
+<h2 class="loyalty-title">Наши «преимущества»</h2>
+<ul class="advantages-list">
+    {% for title, text in advantages %}
+    <li>
+        <strong>{{ title }}</strong>
+        <p>{{ text }}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+<h2 class="loyalty-title">{{ loyalty_title }}</h2>
+<p class="loyalty-description">{{ loyalty_description }}</p>
+
+<ul class="loyalty-list">
+    {% for title, text in loyalty_items %}
+    <li>
+        <strong>{{ title }}</strong>
+        <p>{{ text }}</p>
+    </li>
+    {% endfor %}
+</ul>
+
+<p class="loyalty-warning">{{ loyalty_warning }}</p>
 {% endblock %}

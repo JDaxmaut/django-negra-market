@@ -1,18 +1,32 @@
 {% extends "base.html" %}
 
-{% block title %}Home{% endblock %}
+{% block title %}Главная{% endblock %}
 
 {% block content %}
-{% if user.is_authenticated %}
-    <h1>Добро пожаловать, {{ user.username }}!</h1>
-{% else %}
-    <h1>Добро пожаловать!</h1>
-{% endif %}
-<h2>{{name}}</h2>
-<h3>Programming languages</h3>
-<ul>
-    {%for element in languages%}
-        <li>{{element}}</li>
-    {%endfor%}
-</ul>
+<h1>Товары</h1>
+
+<div class="products-grid">
+    {% for id in items %}
+    <a href="{% url 'product' id=id %}" class="product-card">
+        <div class="product-image">
+            <img src="/static/img/card{{ id }}.jpg" alt="Товар {{ id }}">
+        </div>
+        <div class="product-info">
+            <h3>Товар {{ id }}</h3>
+            <p class="product-price">{{ id }}0 хлопка</p>
+            {% if id in cart %}
+                <form action="{% url 'remove_from_cart' id=id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-remove">Удалить</button>
+                </form>
+            {% else %}
+                <form action="{% url 'add_to_cart' id=id %}" method="post" style="display:inline;">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-add">В корзину</button>
+                </form>
+            {% endif %}
+        </div>
+    </a>
+    {% endfor %}
+</div>
 {% endblock %}

@@ -1,12 +1,6 @@
 from django.contrib import admin
-from django.urls import path, include
-from django.views.generic import TemplateView
-from app1.views import home_page, about_page, goods_page, product_page, login_form, login_view, logout_view
-
-product_patterns = [
-    path("", goods_page, name="goods"),
-    path("product/<int:id>", product_page, name="product"),
-]
+from django.urls import path
+from app1.views import home_page, about_page, product_page, login_form, login_view, logout_view, add_to_cart, remove_from_cart, cart_page
 
 urlpatterns = [
     path('', home_page, name='home'),
@@ -16,6 +10,9 @@ urlpatterns = [
     path('logout/', logout_view, name='logout'),
     path('home/', home_page, name='home'),
     path('about/', about_page, name='about'),
-    path('goods/', include(product_patterns))
+    path('cart/', cart_page, name='cart'),
+    path('cart/add/<int:id>', add_to_cart, name='add_to_cart'),
+    path('cart/remove/<int:id>', remove_from_cart, name='remove_from_cart'),
+    path('product/<int:id>', product_page, name='product'),
 ]
 
