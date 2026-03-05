@@ -513,12 +513,12 @@ a:hover {
 }
 
 .nav-referral {
-    color: #ff6b6b;
-    font-weight: 600;
+    color: var(--text-primary);
+    font-weight: 500;
 }
 
 .nav-referral:hover {
-    color: #ff8787;
+    color: var(--accent);
 }
 
 .fines-intro {
@@ -778,6 +778,7 @@ a:hover {
     width: 100%;
     text-transform: uppercase;
     letter-spacing: 1px;
+    margin-top: 25px;
 }
 
 .btn-referral-submit:hover {
