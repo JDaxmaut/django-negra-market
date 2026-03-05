@@ -584,6 +584,7 @@ a:hover {
     line-height: 1.6;
     color: #ff6b6b;
     font-weight: 500;
+    margin-bottom: 20px;
 }
 
 .blink-red {
