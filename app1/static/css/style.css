@@ -512,6 +512,15 @@ a:hover {
     margin: 10px 0;
 }
 
+.nav-referral {
+    color: #ff6b6b;
+    font-weight: 600;
+}
+
+.nav-referral:hover {
+    color: #ff8787;
+}
+
 .fines-intro {
     font-size: 14px;
     color: var(--text-secondary);
@@ -746,4 +755,32 @@ a:hover {
     font-size: 13px;
     color: var(--text-secondary);
     font-style: italic;
+}
+
+.referral-intro {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.btn-referral-submit {
+    display: inline-block;
+    padding: 24px 48px;
+    background: #ff6b6b;
+    color: #1e1e1e;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.1s;
+    width: 100%;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.btn-referral-submit:hover {
+    background: #ff8787;
+    transform: scale(1.02);
 }

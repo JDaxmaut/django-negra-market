@@ -90,14 +90,17 @@ def fines_page(request):
 
 def complaints_page(request):
     submitted = False
+    if request.method == "POST":
+        submitted = True
+    data = {"submitted": submitted}
+    return render(request, "complaints.html", context=data)
+
+def referral_page(request):
     friend_submitted = False
     if request.method == "POST":
-        if 'friend_name' in request.POST:
-            friend_submitted = True
-        else:
-            submitted = True
-    data = {"submitted": submitted, "friend_submitted": friend_submitted}
-    return render(request, "complaints.html", context=data)
+        friend_submitted = True
+    data = {"friend_submitted": friend_submitted}
+    return render(request, "referral.html", context=data)
 
 def product_page(request, id):
     data = {"id": id}

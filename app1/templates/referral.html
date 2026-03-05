@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block title %}Сдать друга{% endblock %}
+
+{% block content %}
+<h1>Сдать друга (Получить булку)</h1>
+<p class="referral-intro">Реферальная программа «Друг за сухарик»</p>
+
+{% if friend_submitted %}
+<div class="referral-success">
+    <strong>Спасибо за защиту родины и подписания контракта!</strong>
+    <p>За вашим другом выехали. Булка будет выдана после успешной вербовки.</p>
+</div>
+{% endif %}
+
+<form method="post" class="referral-form">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="friend-name">Имя друга:</label>
+        <input type="text" id="friend-name" name="friend_name" placeholder="Кого сдаём?">
+    </div>
+    <div class="form-group">
+        <label for="friend-phone">Телефон друга:</label>
+        <input type="tel" id="friend-phone" name="friend_phone" placeholder="+7 (999) 000-00-00">
+    </div>
+    <div class="form-group">
+        <label for="friend-email">Email друга:</label>
+        <input type="email" id="friend-email" name="friend_email" placeholder="friend@example.com">
+    </div>
+    <button type="submit" class="btn-referral-submit">СДАТЬ ДРУГА</button>
+</form>
+
+<p class="referral-note">
+    <em>Нажимая кнопку, вы подтверждаете, что друг достоин страданий.</em>
+</p>
+
+<a href="{% url 'home' %}" class="btn-back">← Вернуться</a>
+{% endblock %}

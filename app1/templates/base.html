@@ -22,6 +22,7 @@
         {% if user.is_authenticated %}
             <a href="{% url 'fines' %}">Мои штрафы</a>
             <a href="{% url 'complaints' %}">Жалобная книга</a>
+            <a href="{% url 'referral' %}" class="nav-referral">Сдать друга</a>
         {% endif %}
     </nav>
 

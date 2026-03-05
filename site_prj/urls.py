@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.urls import path
-from app1.views import home_page, about_page, product_page, login_form, login_view, logout_view, add_to_cart, remove_from_cart, cart_page, fines_page, complaints_page
+from app1.views import home_page, about_page, product_page, login_form, login_view, logout_view, add_to_cart, remove_from_cart, cart_page, fines_page, complaints_page, referral_page
 
 urlpatterns = [
     path('', home_page, name='home'),
@@ -16,5 +16,6 @@ urlpatterns = [
     path('product/<int:id>', product_page, name='product'),
     path('fines/', fines_page, name='fines'),
     path('complaints/', complaints_page, name='complaints'),
+    path('referral/', referral_page, name='referral'),
 ]
 
