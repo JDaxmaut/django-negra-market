@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, logout
 from django.db import IntegrityError
+import random
 
 from .models import RegistrationForm, LoginForm
 
@@ -70,7 +71,9 @@ def about_page(request):
 
 def fines_page(request):
     salary = 0.01
-    fines = [
+    
+    # Базовые штрафы
+    base_fines = [
         ("За дыхание", 50),
         ("За моргание", 100),
         ("За мысли об отпуске", 500),
@@ -79,7 +82,17 @@ def fines_page(request):
         ("За недостаточно громкую печать", 150),
         ("За существование", 1000),
     ]
+    
+    # Генерируем случайный множитель для пользователя (0.8 - 1.2)
+    if 'fines_multiplier' not in request.session:
+        request.session['fines_multiplier'] = round(random.uniform(0.8, 1.2), 2)
+    
+    multiplier = request.session['fines_multiplier']
+    
+    # Применяем множитель к каждому штрафу
+    fines = [(name, int(amount * multiplier)) for name, amount in base_fines]
     total_fines = sum(fine[1] for fine in fines)
+    
     data = {
         "salary": salary,
         "fines": fines,
