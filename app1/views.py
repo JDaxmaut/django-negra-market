@@ -36,7 +36,10 @@ def remove_from_cart(request, id):
 
 def cart_page(request):
     cart = get_cart(request)
-    data = {"cart": cart}
+    checkout_error = None
+    if request.method == "POST":
+        checkout_error = "Недостаточно средств на балансе жизни"
+    data = {"cart": cart, "checkout_error": checkout_error}
     return render(request, "cart.html", context=data)
 
 def about_page(request):
@@ -64,6 +67,33 @@ def about_page(request):
         "loyalty_warning": loyalty_warning,
     }
     return render(request, "about.html", context=data)
+
+def fines_page(request):
+    salary = 0.01
+    fines = [
+        ("За дыхание", 50),
+        ("За моргание", 100),
+        ("За мысли об отпуске", 500),
+        ("За опоздание на 0.0001 сек", 200),
+        ("За слишком громкую печать", 150),
+        ("За недостаточно громкую печать", 150),
+        ("За существование", 1000),
+    ]
+    total_fines = sum(fine[1] for fine in fines)
+    data = {
+        "salary": salary,
+        "fines": fines,
+        "total_fines": total_fines,
+        "debt": total_fines - salary,
+    }
+    return render(request, "fines.html", context=data)
+
+def complaints_page(request):
+    submitted = False
+    if request.method == "POST":
+        submitted = True
+    data = {"submitted": submitted}
+    return render(request, "complaints.html", context=data)
 
 def product_page(request, id):
     data = {"id": id}

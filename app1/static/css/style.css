@@ -347,6 +347,73 @@ a:hover {
     margin-top: 20px;
 }
 
+.delivery-progress {
+    padding: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    max-width: 600px;
+}
+
+.delivery-progress p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+    color: var(--text-secondary);
+}
+
+.delivery-amount {
+    color: #ff6b6b;
+    font-weight: 600;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 8px;
+    background: var(--bg-primary);
+    border-radius: 4px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 4px;
+}
+
+.checkout-form {
+    margin-top: 20px;
+}
+
+.btn-checkout {
+    display: inline-block;
+    padding: 14px 28px;
+    background: var(--accent);
+    color: #1e1e1e;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s;
+    width: 100%;
+}
+
+.btn-checkout:hover {
+    background: var(--accent-hover);
+}
+
+.checkout-error {
+    margin-top: 20px;
+    padding: 20px;
+    background: var(--bg-secondary);
+    border: 2px solid #ff6b6b;
+    border-radius: 8px;
+    color: #ff6b6b;
+    font-weight: 500;
+    text-align: center;
+}
+
 .about-description {
     font-size: 16px;
     line-height: 1.8;
@@ -437,4 +504,173 @@ a:hover {
     line-height: 1.6;
     color: #ff6b6b;
     font-weight: 500;
+}
+
+.nav-separator {
+    height: 1px;
+    background: var(--border);
+    margin: 10px 0;
+}
+
+.fines-intro {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 20px;
+    font-style: italic;
+}
+
+.fines-list {
+    max-width: 600px;
+}
+
+.fine-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    margin-bottom: 10px;
+}
+
+.fine-name {
+    color: var(--text-primary);
+}
+
+.fine-amount {
+    color: #ff6b6b;
+    font-weight: 600;
+}
+
+.fines-summary {
+    padding: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 20px 0;
+}
+
+.fines-summary p {
+    margin: 10px 0;
+}
+
+.salary {
+    color: var(--text-secondary);
+}
+
+.total-fines {
+    color: #ff6b6b;
+    font-weight: 600;
+}
+
+.fines-warning {
+    padding: 20px;
+    background: var(--bg-secondary);
+    border: 2px solid #ff6b6b;
+    border-radius: 8px;
+    max-width: 600px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #ff6b6b;
+    font-weight: 500;
+}
+
+.blink-red {
+    animation: blink-red 1s infinite;
+}
+
+@keyframes blink-red {
+    0%, 100% {
+        background: var(--bg-secondary);
+        border-color: #ff6b6b;
+    }
+    50% {
+        background: #ff6b6b;
+        border-color: var(--bg-secondary);
+        color: #1e1e1e;
+    }
+}
+
+.complaints-intro {
+    font-size: 14px;
+    color: var(--text-secondary);
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.complaint-success {
+    padding: 20px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.complaint-success strong {
+    display: block;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.complaint-success p {
+    margin: 0;
+    color: var(--text-secondary);
+}
+
+.complaint-form {
+    max-width: 600px;
+}
+
+.complaint-form .form-group {
+    margin-bottom: 20px;
+}
+
+.complaint-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-size: 14px;
+}
+
+.complaint-form textarea,
+.complaint-form input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--text-primary);
+    font-size: 14px;
+    font-family: inherit;
+}
+
+.complaint-form textarea:focus,
+.complaint-form input[type="email"]:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.btn-submit {
+    display: inline-block;
+    padding: 12px 24px;
+    background: var(--accent);
+    color: #1e1e1e;
+    border: none;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-submit:hover {
+    background: var(--accent-hover);
+}
+
+.complaint-note {
+    margin-top: 20px;
+    font-size: 13px;
+    color: var(--text-secondary);
 }

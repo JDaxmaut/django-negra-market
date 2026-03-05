@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block title %}Мои штрафы{% endblock %}
+
+{% block content %}
+<h1>Мои штрафы</h1>
+<p class="fines-intro">Самый посещаемый раздел компании «азон»</p>
+
+<div class="fines-list">
+    {% for name, amount in fines %}
+    <div class="fine-item">
+        <span class="fine-name">{{ name }}</span>
+        <span class="fine-amount">-{{ amount }} хлопка</span>
+    </div>
+    {% endfor %}
+</div>
+
+<div class="fines-summary">
+    <p>Ваша зарплата: <span class="salary">{{ salary }} хлопка</span></p>
+    <p>Сумма штрафов: <span class="total-fines">{{ total_fines }} хлопка</span></p>
+</div>
+
+{% if total_fines > salary %}
+<div class="fines-warning blink-red">
+    <strong>⚠ ВНИМАНИЕ!</strong> Сумма штрафов превышает вашу зарплату! 
+    Вы должны компании {{ debt }} хлопка. 
+    Ожидайте визит коллекторов.
+</div>
+{% endif %}
+
+<a href="{% url 'home' %}" class="btn-back">← Вернуться</a>
+{% endblock %}

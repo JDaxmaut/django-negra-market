@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}Жалобная книга{% endblock %}
+
+{% block content %}
+<h1>Жалобная книга</h1>
+<p class="complaints-intro">(Корзина для спама)</p>
+
+{% if submitted %}
+<div class="complaint-success">
+    <strong>Ваша жалоба отправлена!</strong>
+    <p>Шутка. Она никуда не отправилась и была немедленно удалена.</p>
+</div>
+{% endif %}
+
+<form method="post" class="complaint-form">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="complaint-text">Текст жалобы:</label>
+        <textarea id="complaint-text" name="complaint_text" rows="6" placeholder="Опишите вашу проблему... (это ничего не изменит)"></textarea>
+    </div>
+    <div class="form-group">
+        <label for="complaint-email">Ваш email:</label>
+        <input type="email" id="complaint-email" name="complaint_email" placeholder="example@azon.com">
+    </div>
+    <button type="submit" class="btn-submit">Отправить</button>
+</form>
+
+<p class="complaint-note">
+    <em>Примечание: Все жалобы автоматически удаляются. Спасибо за понимание!</em>
+</p>
+
+<a href="{% url 'home' %}" class="btn-back">← Вернуться</a>
+{% endblock %}
